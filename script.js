@@ -6,35 +6,31 @@ var upperChars = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M
 
 // Generate Password
 function generatePassword() {
-
-  // Prompt the user for password length and store it in a variable
+  // Stores the user input for password length
   var pwdLength; 
   
+  pwdLength = window.prompt("Please enter the desired length of your password (More than 8 characters, less than 128)");
+
   // Verify user input for password length is valid according to predefined criteria
-
   // if(pwdLength < 8 || pwdLength > 128) {
-  // alert("You must choose a password length greater than 8 characters and less than 128 in length.")
-  // }; 
-
-  // Prompt user for if they want special characters & store it in a variable
-  var specBank;
-
-  // Prompt the user if they want numbers and store it in a variable
-  var numBank;
-
-  // Prompt the user if they want lower case letters and store it in a variable
-  var lowerBank;
-
-  // Prompt the user if they want upper case letters and store it in a variable
-  var upperBank;
-
-  // Validate that at least one character choice is true
-  // if( !pwdLength && !specBank && !numBank && !lowerBank && !upperBank) {
-  //   // Alert the user they had bad data
+  // alert("You must choose a password length greater than 8 characters and less than 128 in length.");
   // }
 
-  // Declare a new empty array to contain user input data
+  // Prompt user for if they want special characters & store it in a variable
+  useSpec = window.confirm("Would you like to use special characters?");
+  // Prompt the user if they want numbers and store it in a variable
+  useNum = window.confirm("Would you like to use numbers?");
+  // Prompt the user if they want lower case letters and store it in a variable
+  useLower = window.confirm("Would you like to use lower case letters?");
+  // Prompt the user if they want upper case letters and store it in a variable
+  useUpper = window.confirm("Would you like to use upper case letters?");
+  // Validate that at least one character choice is true
+  if( !pwdLength && !specBank && !numBank && !lowerBank && !upperBank) {
+    window.alert("You must select at least one character set to generate a password.");
+  }
 
+  // Declare a new empty array to contain user input data
+  var userChars = [];
   // concat things into new container array
   
   // for(var i=0; i < passwordLength; i++)
