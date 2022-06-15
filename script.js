@@ -11,11 +11,11 @@ function generatePassword() {
   
   pwdLength = window.prompt("Please enter the desired length of your password (More than 8 characters, less than 128)");
 
-  // TODO: Verify user input for password length is valid according to predefined criteria
-  // if(pwdLength < 8 || pwdLength > 128) {
-  // alert("You must choose a password length greater than 8 characters and less than 128 in length.");
-  // Something needs to prevent next prompts from appearing until a valid number is entered
-  // }
+  // : Verify user input for password length is valid according to predefined criteria
+  if(pwdLength < 8 || pwdLength > 128) {
+  alert("You must choose a password length greater than 8 characters and less than 128 in length.");
+  return null;
+  }
 
   // Prompt user for if they want special characters & store it in a variable
   var useSpec = window.confirm("Would you like to use special characters?");
@@ -26,22 +26,36 @@ function generatePassword() {
   // Prompt the user if they want upper case letters and store it in a variable
   var useUpper = window.confirm("Would you like to use upper case letters?");
   
-  // TODO: Validate that at least one character choice is true
-  // if( !useSpec && !useNum && !useLower && !useUpper ) {
-  //   window.alert("You must select at least one character set to generate a password.");
-  // }
+  // : Validate that at least one character choice is true
+  if( !useSpec && !useNum && !useLower && !useUpper ) {
+    window.alert("You must select at least one character set to generate a password.");
+    return null;
+  }
 
   // Declare a new empty array to contain user input data
   var selectedChars = [];
-  // TODO: concat things into new container array
+  // : concat things into new container array
+  if (useSpec) {
+    selectedChars = selectedChars.concat(specChars);
+  }
+  if (useNum) {
+    selectedChars = selectedChars.concat(numChars);
+  }
+  if (useLower) {
+    selectedChars = selectedChars.concat(lowerChars);
+  }
+  if (useUpper) {
+    selectedChars = selectedChars.concat(upperChars);
+  }
   
-  // for(var i=0; i < pwdLength; i++)
-    
-    // TODO: Randomly select characters
-    // Math.floor(Math.random() * selectedChars.length);
-    // TODO: Add characters to a password container string
-    // var generatedPwd = "";
-    // TODO: RETURN the completed string
+  // : Add characters to a password container string
+  var generatedPwd = "";
+
+  for(var i=0; i < pwdLength; i++) {
+    // : Randomly select characters
+    generatedPwd += selectedChars[Math.floor(Math.random() * selectedChars.length)];
+  }
+  return generatedPwd;
 
 }
 
