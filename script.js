@@ -38,9 +38,9 @@ function generatePassword() {
   // for(var i=0; i < pwdLength; i++)
     
     // TODO: Randomly select characters
-
+    // Math.floor(Math.random() * selectedChars.length);
     // TODO: Add characters to a password container string
-
+    // var generatedPwd = "";
     // TODO: RETURN the completed string
 
 }
