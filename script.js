@@ -8,7 +8,7 @@ var upperChars = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M
 function generatePassword() {
   // Stores the user input for password length
   var pwdLength; 
-  
+  // Prompts user to enter a password length
   pwdLength = window.prompt("Please enter the desired length of your password (More than 8 characters, less than 128)");
 
   // : Verify user input for password length is valid according to predefined criteria
@@ -56,7 +56,6 @@ function generatePassword() {
     generatedPwd += selectedChars[Math.floor(Math.random() * selectedChars.length)];
   }
   return generatedPwd;
-
 }
 
 // Assignment Code
